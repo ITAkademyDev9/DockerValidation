@@ -137,4 +137,8 @@ fi
 	docker run --name ${containerrancher} -d --restart=always --link ${containermysqlid} --link ${containerpmaid} --link ${containerapacheid} -p 444:8080 rancher/server
 	containerrancherid=$(docker ps -aqf "name=${containerrancher}")
 
+	echo "URL Apache : http://172.17.0.1:5000" >> config.txt
+	echo "URL PMA : http://172.17.0.1:4000" >> config.txt
+	echo "URL Rancher : http://172.17.0.1:444" >> config.txt
+
 	# sudo docker run -e CATTLE_AGENT_IP="57887561340f"  --rm --privileged  -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.2.2 http://127.17.0.1:444/v1/scripts/A5B52C0C726E42DA2AE9:1483142400000:hm6anu52dnbB7u7QMSXptrXRxOI
